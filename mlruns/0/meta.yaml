@@ -1,0 +1,9 @@
+artifact_location: file:///C:/Users/anama/Documents/GitHub/project-mlops/mlruns/0
+creation_time: 1718810991886
+experiment_id: '0'
+last_update_time: 1718872593648
+lifecycle_stage: active
+name: bitcoin_price_prediction_random_forest
+tags:
+  mlflow.sharedViewState.220f5022eb71d05ea12d2b7f4e70ef67c08538c1e812f9e23199f6566456a443: '{"searchFilter":"","orderByKey":"attributes.start_time","orderByAsc":false,"startTime":"ALL","lifecycleFilter":"Active","datasetsFilter":[],"modelVersionFilter":"All
+    Runs","selectedColumns":["attributes.`Source`","attributes.`Models`","attributes.`Dataset`"],"runsExpanded":{},"runsPinned":[],"runsHidden":[],"runsHiddenMode":"FIRST_10_RUNS","viewMaximized":false,"runListHidden":false,"isAccordionReordered":false,"useGroupedValuesInCharts":true,"groupBy":null,"groupsExpanded":{},"autoRefreshEnabled":false}'

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/942486363954946846/33169cf4b25847668d92886f80121c9f/artifacts
+end_time: 1718871753810
+entry_point_name: ''
+experiment_id: '942486363954946846'
+lifecycle_stage: active
+run_id: 33169cf4b25847668d92886f80121c9f
+run_name: abundant-turtle-110
+run_uuid: 33169cf4b25847668d92886f80121c9f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718871753647
+status: 3
+tags: []
+user_id: anama

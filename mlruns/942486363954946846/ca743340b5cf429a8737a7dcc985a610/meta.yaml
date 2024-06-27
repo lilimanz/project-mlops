@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/942486363954946846/ca743340b5cf429a8737a7dcc985a610/artifacts
+end_time: 1718870848232
+entry_point_name: ''
+experiment_id: '942486363954946846'
+lifecycle_stage: active
+run_id: ca743340b5cf429a8737a7dcc985a610
+run_name: inquisitive-bee-323
+run_uuid: ca743340b5cf429a8737a7dcc985a610
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718870848057
+status: 3
+tags: []
+user_id: anama

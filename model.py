@@ -1,8 +1,11 @@
 import pandas as pd
+import mlflow
+import mlflow.sklearn
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+import joblib
 
 # Load the data
 def load_data(file_path):
@@ -39,11 +42,7 @@ def evaluate_model(model, scaler, X_test, y_test):
     mae = mean_absolute_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
 
-    # Print metrics
-    print(f'Mean Squared Error (MSE): {mse}')
-    print(f'Root Mean Squared Error (RMSE): {rmse}')
-    print(f'Mean Absolute Error (MAE): {mae}')
-    print(f'R-squared (R2): {r2}')
+    return mse, rmse, mae, r2
 
 if __name__ == "__main__":
     # Load data
@@ -56,9 +55,33 @@ if __name__ == "__main__":
     # Split data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
 
-    # Train the model and get the fitted scaler
-    model, scaler = train_model(X_train, y_train)
+    # Start MLflow run
+    with mlflow.start_run():
+        # Train the model and get the fitted scaler
+        model, scaler = train_model(X_train, y_train)
 
-    # Evaluate the model using the trained model and scaler
-    evaluate_model(model, scaler, X_test, y_test)
-    
+        # Evaluate the model using the trained model and scaler
+        mse, rmse, mae, r2 = evaluate_model(model, scaler, X_test, y_test)
+
+        # Log parameters
+        mlflow.log_param("n_estimators", 100)
+        mlflow.log_param("random_state", 42)
+
+        # Log metrics
+        mlflow.log_metric("mse", mse)
+        mlflow.log_metric("rmse", rmse)
+        mlflow.log_metric("mae", mae)
+        mlflow.log_metric("r2", r2)
+
+        # Log model
+        mlflow.sklearn.log_model(model, "model")
+
+        # Save the model using joblib
+        joblib.dump(model, 'model.joblib')
+
+        # Print metrics
+        print(f'Mean Squared Error (MSE): {mse}')
+        print(f'Root Mean Squared Error (RMSE): {rmse}')
+        print(f'Mean Absolute Error (MAE): {mae}')
+        print(f'R-squared (R2): {r2}')
+
